@@ -1,0 +1,25 @@
+{
+  "name": "puzzles-js",
+  "version": "1.0.0",
+  "description": "Sample puzzles and programming questions completed in JavaScript (ES6) and unit tested with Jasmine.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node .",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bkaid/puzzles-js.git"
+  },
+  "author": "Brandon Kaid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bkaid/puzzles-js/issues"
+  },
+  "homepage": "https://github.com/bkaid/puzzles-js#readme",
+  "devDependencies": {
+    "eslint": "^2.11.0",
+    "jasmine-node": "^1.14.5"
+  }
+}
