@@ -7,12 +7,12 @@ const BigNumber = require('bignumber.js');
  * @returns {BigNumber}
  */
 exports.sumMultiplesOf3And5 = (below) => {
-    let max = below - 1;
-    let three = exports.sumNumbersDivisibleBy(3, max);
-    let five = exports.sumNumbersDivisibleBy(5, max);
-    let both = exports.sumNumbersDivisibleBy(3 * 5, max);
-    let result = three.plus(five).minus(both); 
-    return result;
+  let max = below - 1;
+  let three = exports.sumNumbersDivisibleBy(3, max);
+  let five = exports.sumNumbersDivisibleBy(5, max);
+  let both = exports.sumNumbersDivisibleBy(3 * 5, max);
+  let result = three.plus(five).minus(both);
+  return result;
 };
 
 /**
@@ -22,9 +22,9 @@ exports.sumMultiplesOf3And5 = (below) => {
  * @returns {BigNumber}
  */
 exports.sumNumbersDivisibleBy = (divisibleBy, max) => {
-    let countNumbersDivisibleByMax = Math.floor(max / divisibleBy);
-    let sumIntegersFrom1ToCount = exports.sumIntegersFrom1To(countNumbersDivisibleByMax);
-    return sumIntegersFrom1ToCount.times(divisibleBy);
+  let countNumbersDivisibleByMax = Math.floor(max / divisibleBy);
+  let sumIntegersFrom1ToCount = exports.sumIntegersFrom1To(countNumbersDivisibleByMax);
+  return sumIntegersFrom1ToCount.times(divisibleBy);
 };
 
 /**
@@ -33,6 +33,6 @@ exports.sumNumbersDivisibleBy = (divisibleBy, max) => {
  * @returns {BigNumber}
  */
 exports.sumIntegersFrom1To = (n) => {
-    let sum = new BigNumber(n).times(n + 1).dividedBy(2);
-    return sum;
+  let sum = new BigNumber(n).times(n + 1).dividedBy(2);
+  return sum;
 };

@@ -8,9 +8,9 @@ This problem at first seemed easy. It could be brute-forced with *O(n)* by loopi
 let below = 1000;
 let result = 0;
 for (let i = 0; i < below; i++) {
-    if (i % 3 === 0 || i % 5 === 0) {
-        result += i;
-    }
+  if (i % 3 === 0 || i % 5 === 0) {
+      result += i;
+  }
 }
 console.log(result);
 ```
