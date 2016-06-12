@@ -13,7 +13,7 @@ exports.largestPrimeFactor = (value, divisor = 2) => {
   let sqrt = Math.sqrt(value);
   while (value % divisor !== 0 && divisor <= sqrt) {
     // increase by 2 to skip all even numbers
-    divisor = divisor + (divisor > 2 ? 2 : 1);
+    divisor += divisor > 2 ? 2 : 1;
   }
 
   // continue to divide the value by the prime factor in case its divisble several times
