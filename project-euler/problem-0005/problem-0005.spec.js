@@ -19,6 +19,10 @@ describe('isPrime', () => {
   it('should return false for known non-prime number', () => {
     expect(problem5.isPrime(9)).toBeFalsy();
   });
+  
+  it('should return false for 1', () => {
+    expect(problem5.isPrime(1)).toBeFalsy();
+  });
 
   /*
     Large prime taken sample from http://www.bigprimes.net/archive/prime/14000000/

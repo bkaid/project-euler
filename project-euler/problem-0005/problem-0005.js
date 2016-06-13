@@ -35,6 +35,10 @@ exports.smallestMultiple = (n) => {
  * @returns {Boolean}
  */
 exports.isPrime = (number) => {
+  if (number <= 1) {
+    return false;
+  }
+
   let sqrt = Math.sqrt(number);
   let divisor = 2;
 
