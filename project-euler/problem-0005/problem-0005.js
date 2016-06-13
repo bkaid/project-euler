@@ -2,7 +2,7 @@
 
 /**
  * Returns the smallest number that can be divided by each of the numbers from
- * 1 to n without any reamider
+ * 1 to n without any remaider
  * @param {Number} n Max divisor to check for
  * @returns {Number}
  */
