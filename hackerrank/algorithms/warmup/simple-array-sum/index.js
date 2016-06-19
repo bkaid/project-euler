@@ -1,5 +1,5 @@
 'use strict';
-const arraySum = require('./arraySum');
+const arraySum = require('./array-sum');
 
 let input = [1, 2, 3, 4, 10, 11];
 let result = arraySum(input);

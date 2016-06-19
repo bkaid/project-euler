@@ -1,5 +1,5 @@
 'use strict';
-require('./maxSubArray');
+require('./max-subarray');
 
 describe('maxSubarray', () => {
   it('should calculate max contiguous subarray for known input', () => {

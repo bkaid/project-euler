@@ -1,5 +1,5 @@
 'use strict';
-const isFunny = require('./funnyString');
+const isFunny = require('./funny-string');
 
 describe('funnyString', () => {
   it('should be defined', () => {

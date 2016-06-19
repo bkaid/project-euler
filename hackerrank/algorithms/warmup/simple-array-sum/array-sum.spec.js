@@ -1,5 +1,5 @@
 'use strict';
-const arraySum = require('./arraySum');
+const arraySum = require('./array-sum');
 
 describe('arraySum', () => {
   it('should be defined', () => {
