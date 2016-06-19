@@ -13,11 +13,60 @@ exports.isPrime = (number) => {
   let sqrt = Math.sqrt(number);
   let divisor = 2;
 
-  // only need to check if prime up to its square root
+  // only need to search for prime numbers up to the square root of the value. 
+  // if a number is not prime, it can be factored into two factors, a * b.
+  // if a and b were both greater than the square root of the number, a * b
+  // would be greater than the value so at least one of its factors must be less.
   while (number % divisor !== 0 && divisor <= sqrt) {
     // increase by 2 to skip all even numbers
     divisor += divisor > 2 ? 2 : 1;
   }
 
   return divisor > sqrt;
+};
+
+/**
+ * @typedef Exponentiation
+ * @type Object
+ * @property {Number} base
+ * @property {Number} exponent
+ */
+
+/**
+ * Calculates the prime factorization of a number
+ * @param {Number} value
+ * @returns {Exponentiation[]}
+ */
+exports.primeFactorization = (value) => {
+  let primeFactorization = [];
+  let lookForFactors = value > 1;
+
+  // compute the prime factorization (primes and their powers)
+  while (lookForFactors) {
+    let exponent = 0;
+    let divisor = 2;
+    let sqrt = Math.sqrt(value);
+
+    // only need to check if prime up to its square root
+    while (value % divisor !== 0 && divisor <= sqrt) {
+      // increase by 2 to skip all even numbers
+      divisor += divisor > 2 ? 2 : 1;
+    }
+
+    while (value % divisor === 0) {
+      exponent++;
+      value /= divisor;
+    }
+
+    lookForFactors = value >= divisor && divisor <= sqrt;
+
+    if (!lookForFactors) {
+      exponent = exponent || 1;
+      divisor = Math.max(value, divisor);
+    }
+
+    primeFactorization.push({ base: divisor, exponent: exponent });
+  }
+
+  return primeFactorization;
 };
