@@ -1,7 +1,7 @@
 'use strict';
 const problem18 = require('./problem-0018');
 
-describe('foo', () => {
+describe('maximumPathSum', () => {
   it('calculates maximum path sum for known input', () => {
     let triangle = [
         [3],
