@@ -1,7 +1,6 @@
 'use strict';
-const BigNumber = require('bignumber.js');
 
-/** 
+/**
  * Returns the remainder of the base raised to the exponent power, divided by the modulo
  * See: https://en.wikipedia.org/wiki/Modular_exponentiation
  * @param {Number} base
@@ -10,6 +9,11 @@ const BigNumber = require('bignumber.js');
  * @returns {Number}
  */
 exports.modularExponentiation = (base, exponent, modulo) => {
-  // TODO: see if there is a more efficient way to calculate than using BigNumber
-  return new BigNumber(base).pow(exponent, modulo).toNumber();
+  let i = 1;
+  let result = 1;
+  while (i <= exponent) {
+    result = (result * base) % modulo;
+    i++;
+  }
+  return result;
 };
