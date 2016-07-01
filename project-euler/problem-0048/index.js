@@ -3,9 +3,9 @@ const problem48 = require('./problem-0048');
 
 console.time('Elapsed Time');
 
-let input = 1000;
-let result = problem48.selfPowers(input);
-let last10Digits = result.toString().slice(-10);
-console.log(`Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + ${input}^${input}.`);
-console.log(`${last10Digits}`);
+let n = 1000;
+let digits = 10;
+let result = problem48.selfPowers(n, digits);
+console.log(`Find the last ${digits} digits of the series, 1^1 + 2^2 + 3^3 + ... + ${n}^${n}.`);
+console.log(`${result}`);
 console.timeEnd('Elapsed Time');

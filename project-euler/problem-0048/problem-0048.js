@@ -1,18 +1,22 @@
 'use strict';
-const BigNumber = require('bignumber.js');
-BigNumber.config({ EXPONENTIAL_AT: 1e+9 });
-BigNumber.config({ POW_PRECISION: 1e+9 });
+const modularExponentiation = require('../../common/math/modular-exponentiation').modularExponentiation;
 
 /**
- * Finds the the index of the first term in the Fibonacci sequence to contain n digits
+ * Find the last x digits of the series 1^1 + 2^2 + 3^3 + ... + n^n
  * @param {Number} n
- * @returns {BigNumber}
+ * @param {Number} digits the remaining digits to return
+ * @returns {Number}
  */
-exports.selfPowers = n => {
-  let current = new BigNumber(0);
+exports.selfPowers = (n, digits) => {
+  let modulo = Math.pow(10, digits);
+  let current = 0;
 
   for(let i = 1; i <= n; i++) {
-    current = current.plus(new BigNumber(i).pow(i));
+    if (i % 10 !== 0) {
+      let value = modularExponentiation(i, i, modulo);
+      current += value;
+      current %= modulo;
+    }
   }
 
   return current;
