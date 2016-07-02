@@ -26,16 +26,9 @@ exports.isPrime = (number) => {
 };
 
 /**
- * @typedef Exponentiation
- * @type Object
- * @property {Number} base
- * @property {Number} exponent
- */
-
-/**
  * Calculates the prime factorization of a number
  * @param {Number} value
- * @returns {Exponentiation[]}
+ * @returns {{base: number, exponent: number}[]}
  */
 exports.primeFactorization = (value) => {
   let primeFactorization = [];
