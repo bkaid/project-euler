@@ -18,11 +18,3 @@ describe('amicableNumberSum', () => {
     expect(problem21.amicableNumberSum(221)).toBe(220);
   });
 });
-
-describe('properDivisorSum', () => {
-  it('sums proper divisors for known input', () => {
-    expect(problem21.properDivisorSum(0)).toBe(0);
-    expect(problem21.properDivisorSum(1)).toBe(0);
-    expect(problem21.properDivisorSum(220)).toBe(284);
-  });
-});
