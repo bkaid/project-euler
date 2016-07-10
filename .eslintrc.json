@@ -16,6 +16,13 @@
       "linebreak-style": "off",
       "no-unused-vars": ["error", { "args": "none" } ],
       "quotes": ["error", "single"],
-      "semi": ["error", "always"]
+      "semi": ["error", "always"],
+      "valid-jsdoc": [
+        "error",
+        { 
+          "requireParamDescription": false,
+          "requireReturnDescription": false
+        }
+      ]
   }
 }

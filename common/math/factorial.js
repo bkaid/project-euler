@@ -9,6 +9,6 @@ BigNumber.config({ POW_PRECISION: 1e+9 });
  * @param {Number} n
  * @returns {BigNumber}
  */
-let factorial = exports.factorial = (n) => {
-  return n === 0 ? new BigNumber(1) : factorial(n - 1).times(n);
+exports.factorial = (n) => {
+  return n === 0 ? new BigNumber(1) : exports.factorial(n - 1).times(n);
 };

@@ -2,7 +2,7 @@
 
 /**
  * Calculates the maximum total from top to bottom of a triangle
- * @param {Number[][]} triangle
+ * @param {Number[]} triangle
  * @returns {Number}
  */
 exports.maximumPathSum = (triangle) => {

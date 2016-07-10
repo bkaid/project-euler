@@ -31,7 +31,7 @@ exports.nthTriangularNumber = (n) => {
 /**
  * Calculates the numbers of divisors for a value using the technique from:
  * http://www.gmathacks.com/gmat-math/number-of-factors-of-a-large-integer.html
- * @param {Number} value
+ * @param {Number} number
  * @returns {Number}
  */
 exports.factorCount = (number) => {

@@ -30,6 +30,8 @@ class LinkedList {
 
   /**
    * Add a node to the singly linked list
+   * @param {*} data
+   * @returns {void}
    */
   add(data) {
     var node = new Node(data, null);
