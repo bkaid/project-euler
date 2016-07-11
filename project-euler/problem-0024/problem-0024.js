@@ -1,66 +1,68 @@
 'use strict';
-
-function arraySwap(array, left, right) {
-  let temp = array[right];
-  array[right] = array[left];
-  array[left] = temp;
-}
+const toFactorial = require('../../common/math/factorial').factorial;
+const BigNumber = require('bignumber.js');
 
 /**
- * Finds the next lexicographic permutation of an array
- * Based on algoritm from: https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
+ * Finds the Nth lexicographic permutation of an array
+ * Uses algorithm descibed here, based on properties of factorial base numbers:
+ * http://irenes-coding-blog.blogspot.com/2012/07/factorial-base-numbers-and-permutations.html
  * @param {Object[]} array
- * @returns {Object[]}
+ * @param {Number} n The Nth permutation to select, where first permutation is 1 (sorted ascending)
+ * @returns {Object[]} Array sorted in Nth permutation order
  */
-exports.nextLexicographicPermutation = (array) => {
-  // The following algorithm generates the next permutation lexicographically after a given permutation. It changes the given permutation in-place.
+exports.nthLexicographicPermutation = (array, n) => {
+  // array must be sorted to correctly determine the lexicographic permutation
+  array.sort();
 
-  // Find the largest index k such that a[k] < a[k + 1].
-  let k = array.length - 2;
-  while (k > 0 && array[k] >= array[k + 1]) {
-    k--;
-  }
+  // determine the 0-based factoradic index for the permutation requested.
+  let factoradic = exports.toFactoradic(n - 1);
 
-  // Find the largest index l greater than k such that a[k] < a[l].
-  let l = array.length - 1;
-  while (array[l] <= array[k]) {
-    l--;
-  }
-
-  // If no such index exists, the permutation is the last permutation.
-  if (l < 0) {
-    return null;
-  }
-
-  // Swap the value of a[k] with that of a[l].
-  arraySwap(array, l, k);
-
-  // Reverse the sequence from a[k + 1] up to and including the final element a[n].
-  k++;
-  l = array.length - 1; 
-  while (k < l) {
-    arraySwap(array, l, k);
-    k++;
-    l--;
+  for(let i = 0; i < factoradic.length; i++) {
+    if (factoradic[i]) {
+      // remove the value at factoradic index, skipping over previously checked
+      // postions, and offsetting difference in widths of array vs factoradic
+      // digits to handle trailing zeroes not present on factoradic number
+      let offset = i + array.length - factoradic.length;
+      let value = array.splice(factoradic[i] + offset, 1)[0];
+      // move the value to the front of the array, offset by previously checked postions
+      array.splice(offset, 0, value);
+    }
   }
 
   return array;
 };
 
 /**
- * Finds the Nth lexicographic permutation of an array
- * @param {Object[]} array
- * @param {Number} n
- * @returns {Object[]}
+ * Converts a decimal base 10 number to a factoradic number
+ * See: https://en.wikipedia.org/wiki/Factorial_number_system
+ * @param {Number} decimal
+ * @returns {Number[]}
  */
-exports.nthLexicographicPermutation = (array, n) => {
-  array.sort();
-
-  let count = 1;
-  while (count < n) {
-    exports.nextLexicographicPermutation(array);
-    count++;
+exports.toFactoradic = (decimal) => {
+  // determine the max factorial needed to represent the number.
+  // the number of digits of the factoradic will be the max factorial + 1
+  let factorDecimal = 1;
+  let maxFactorNeeded = 0;
+  while(factorDecimal * (maxFactorNeeded + 1) <= decimal) {
+    maxFactorNeeded++;
+    factorDecimal *= maxFactorNeeded;
   }
 
-  return array;
+  let input = new BigNumber(decimal);
+  let factoradic = [];
+  for(let i = maxFactorNeeded; i >= 0; i--) {
+    // determine the base value for the position by calculating how many times
+    // the current value is divisible by the current factorial
+    let factorial = toFactorial(i);
+    let factorialCount = input.div(factorial).floor();
+
+    // reduce the value to the remainder of what couldnt be represented 
+    // by the current factorial
+    input = input.mod(factorial);
+
+    // add current position base to result
+    factoradic.push(factorialCount.toNumber());
+  }
+
+  return factoradic;
 };
