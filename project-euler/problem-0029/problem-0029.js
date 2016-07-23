@@ -7,7 +7,6 @@ const prime = require('../../common/math/prime');
  * @returns {Number}
  */
 exports.distinctPowers = (max) => {
-var factor;
   // get the total number of combinations, including duplicates 
   let result = Math.pow((max - 1), 2);
 
@@ -39,7 +38,7 @@ var factor;
     // for all unique powers that can't be expressed as a higher power
     //for (let a = 2; a <= parseInt(power === 3 ? Math.cbrt(max) : Math.pow(max, 1 / power)); a++) {
     for (let a = 2; a <= parseInt(exports.nthRoot(max, power)); a++) {
-      factor = Math.pow(a, power);
+      let factor = Math.pow(a, power);
       let primeFactorization = prime.primeFactorization(factor);
       let maxExponent = primeFactorization.reduce((prev, curr) => Math.max(prev, curr.exponent), 0);
       if (maxExponent === power || primeFactorization.length > 1) {
