@@ -31,3 +31,9 @@ describe('digitLength', () => {
     expect(digits.digitLength(-2)).toEqual(1);
   });
 });
+
+describe('toDigits', () => {
+  it('converts an number to an array of digits', () => {
+    expect((3797).toDigits()).toEqual([3, 7, 9, 7]);
+  });
+});

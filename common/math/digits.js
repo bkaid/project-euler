@@ -11,7 +11,7 @@ exports.truncateLeft = (n, digits) => {
 };
 
 /**
- * Remove digits from the left side of a number
+ * Remove digits from the right side of a number
  * @param {Number} n
  * @param {Number} digits
  * @returns {Number}
@@ -28,4 +28,18 @@ exports.truncateRight = (n, digits) => {
 exports.digitLength = n => {
   n = Math.abs(n);
   return n > 1 ? Math.ceil(Math.log10(n)) : 1;
+};
+
+/**
+ * Convert a number to an array of digits
+ * @returns {Number[]}
+ */
+Number.prototype.toDigits = Number.prototype.toDigits || function () {
+  let number = this;
+  let digits = [];
+  while (number > 0) {
+    digits[digits.length] = number % 10;
+    number = parseInt(number / 10);
+  }
+  return digits.reverse();
 };
