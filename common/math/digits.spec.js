@@ -37,3 +37,11 @@ describe('toDigits', () => {
     expect((3797).toDigits()).toEqual([3, 7, 9, 7]);
   });
 });
+
+describe('toNumber', () => {
+  it('converts an array of digits to a number', () => {
+    expect([].toNumber()).toBeUndefined();
+    expect([1].toNumber()).toEqual(1);
+    expect([3, 7, 9, 7].toNumber()).toEqual(3797);
+  });
+});

@@ -43,3 +43,22 @@ Number.prototype.toDigits = Number.prototype.toDigits || function () {
   }
   return digits.reverse();
 };
+
+
+/**
+ * Convert an array of digits to a number
+ * @returns {Number}
+ */
+Array.prototype.toNumber = Array.prototype.toNumber || function () {
+  let result;
+
+  this.forEach(digit => {
+    let power = 10;
+    while (digit >= power) {
+      power *= 10;
+    }
+    result = (result || 0) * power + digit;
+  });
+
+  return result;
+};
