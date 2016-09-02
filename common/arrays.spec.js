@@ -18,3 +18,24 @@ describe('prunedCombinations', () => {
     expect([1, 6, 1, 6].prunedCombinations([1, 6, 1])).toEqual([[6]]);
   });
 });
+
+describe('permutations', () => {
+  it('should get all permutations for an array', () => {
+    let permutations = [1, 2, 3].permutations();
+    expect(permutations.length).toBe(6);
+    expect(permutations).toContain([1, 2, 3]);
+    expect(permutations).toContain([1, 3, 2]);
+    expect(permutations).toContain([2, 1, 3]);
+    expect(permutations).toContain([2, 3, 1]);
+    expect(permutations).toContain([3, 2, 1]);
+    expect(permutations).toContain([3, 1, 2]);
+  });
+});
+
+describe('nextPermutation', () => {
+  it('should get the next permutation of an array', () => {
+    let array = [1, 2, 3];
+    array.nextPermutation();
+    expect(array).toEqual([1, 3, 2]);
+  });
+});

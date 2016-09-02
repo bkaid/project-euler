@@ -26,8 +26,7 @@ exports.truncateRight = (n, digits) => {
  * @returns {Number}
  */
 exports.digitLength = n => {
-  n = Math.abs(n);
-  return n > 1 ? Math.ceil(Math.log10(n)) : 1;
+  return Math.max(Math.floor(Math.log10(Math.abs(n))), 0) + 1;
 };
 
 /**

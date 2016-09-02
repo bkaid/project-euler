@@ -1,4 +1,5 @@
 'use strict';
+const factorial = require('./math/factorial').factorial;
 
 /**
  * Get k-sized combinations of elements from an array
@@ -30,7 +31,7 @@ Array.prototype.combinations = function (size) {
  * @param {Array} array Array to compare
  * @returns {Boolean} Deep comparison result
  */
-Array.prototype.equals = function(array) {
+Array.prototype.equals = function (array) {
   return this.length === array.length && this.every((item, index) => item === array[index]);
 };
 
@@ -64,3 +65,66 @@ function prunedCombinations(haystack, needles, index, accumulator) {
   // return all solutions found
   return accumulator;
 }
+
+/**
+ * Returns all permutations of an array.
+ * @memberof Array
+ * @returns {Array} An array of permutations from source array
+ */
+Array.prototype.permutations = function () {
+  let results = new Array(factorial(this.length).toNumber());
+  let length = 0;
+
+  function permutate(items, memo) {
+    for (var i = 0; i < items.length; i++) {
+      let current = items.splice(i, 1);
+      if (items.length === 0) {
+        results[length++] = memo.concat(current);
+      }
+      permutate(items.slice(), memo.concat(current));
+      items.splice(i, 0, current[0]);
+    }
+
+    return results;
+  }
+
+  return permutate(this, []);
+};
+
+/**
+ * Get the next lexographical permutation of an array
+ * @memberof Array
+ * @returns {Boolean} True if there was another permutation available
+ */
+Array.prototype.nextPermutation = function () {
+  // Find non-increasing suffix
+  let i = this.length - 1;
+  while (i > 0 && this[i - 1] >= this[i]) {
+    i--;
+  }
+  if (i <= 0) {
+    return false;
+  }
+
+  // Find successor to pivot
+  let j = this.length - 1;
+  while (this[j] <= this[i - 1]) {
+    j--;
+  }
+
+  var temp = this[i - 1];
+  this[i - 1] = this[j];
+  this[j] = temp;
+
+  // Reverse suffix
+  j = this.length - 1;
+  while (i < j) {
+    temp = this[i];
+    this[i] = this[j];
+    this[j] = temp;
+    i++;
+    j--;
+  }
+  
+  return true;
+};

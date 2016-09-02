@@ -32,3 +32,9 @@ describe('primeFactorization', () => {
     expect(prime.primeFactorization(32416190071)).toEqual([{ base: 32416190071, exponent: 1 }]);
   });
 });
+
+describe('getPrimes', () => {
+  it('calculates primes up to known input', () => {
+    expect(prime.getPrimes(0, 10)).toEqual([2, 3, 5, 7]);
+  });
+});

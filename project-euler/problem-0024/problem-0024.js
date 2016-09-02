@@ -4,7 +4,7 @@ const BigNumber = require('bignumber.js');
 
 /**
  * Finds the Nth lexicographic permutation of an array
- * Uses algorithm descibed here, based on properties of factorial base numbers:
+ * Uses algorithm described here, based on properties of factorial base numbers:
  * http://irenes-coding-blog.blogspot.com/2012/07/factorial-base-numbers-and-permutations.html
  * @param {Object[]} array
  * @param {Number} n The Nth permutation to select, where first permutation is 1 (sorted ascending)

@@ -5,7 +5,7 @@
       "name": "Launch",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceRoot}/project-euler/problem-0033/index.js",
+      "program": "${workspaceRoot}/project-euler/problem-0049/index.js",
       "stopOnEntry": false,
       "args": [],
       "cwd": "${workspaceRoot}",

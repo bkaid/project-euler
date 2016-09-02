@@ -20,6 +20,7 @@ describe('truncateRight', () => {
 
 describe('digitLength', () => {
   it('calculates number of digits', () => {
+    expect(digits.digitLength(1000000)).toEqual(7);
     expect(digits.digitLength(3797)).toEqual(4);
     expect(digits.digitLength(379)).toEqual(3);
     expect(digits.digitLength(37)).toEqual(2);

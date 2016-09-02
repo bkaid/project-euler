@@ -63,3 +63,37 @@ exports.primeFactorization = (value) => {
 
   return primeFactorization;
 };
+
+/**
+ * Sieve of Eratosthenes to generate primes up to a max number
+ * @param {Number} max
+ * @returns {Number[]}
+ */
+exports.getPrimes = (min, max) => {
+  // only need to search up to the square root of the max value
+  let sqrt = Math.sqrt(max);
+
+  // start by marking all numbers as true
+  let sieve = new Array(max).fill(true);
+
+  // skip non-primes 0 and 1
+  sieve[0] = false;
+  sieve[1] = false;
+
+  for(let i = 2; i <= sqrt; i++) {
+    if (sieve[i]) {
+      // eliminate all multiples of i
+      for(let j = i * i; j <= max; j += i) {
+        sieve[j] = false;
+      }
+    }
+  }
+
+  // use reduce to combine map and filter operations to return primes from sieve
+  return sieve.reduce((primes, isPrime, index) => {
+    if (isPrime && index >= min) {
+      primes.push(index);
+    }
+    return primes;
+  }, []);
+};
