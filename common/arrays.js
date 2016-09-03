@@ -128,3 +128,13 @@ Array.prototype.nextPermutation = function () {
   
   return true;
 };
+
+/**
+ * Rotates the contents of an array
+ * @memberof Array
+ * @returns {Array}
+ */
+Array.prototype.rotate = Array.prototype.rotate || function () {
+  this.push(this.shift());
+  return this;
+};

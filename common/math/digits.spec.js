@@ -46,3 +46,12 @@ describe('toNumber', () => {
     expect([3, 7, 9, 7].toNumber()).toEqual(3797);
   });
 });
+
+describe('rotate', () => {
+  it('rotates digits of a number', () => {
+    expect((1234).rotate()).toEqual(4123);
+    expect((4123).rotate()).toEqual(3412);
+    expect((3412).rotate()).toEqual(2341);
+    expect((2341).rotate()).toEqual(1234);
+  });
+});

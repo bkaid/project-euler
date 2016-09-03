@@ -30,6 +30,14 @@ exports.digitLength = n => {
 };
 
 /**
+ * Rotate digits of a number
+ * @returns {Number}
+ */
+Number.prototype.rotate = Number.prototype.rotate || function () {
+  return parseInt(this / 10 + (this % 10) * Math.pow(10, exports.digitLength(this) - 1));
+};
+
+/**
  * Convert a number to an array of digits
  * @returns {Number[]}
  */
