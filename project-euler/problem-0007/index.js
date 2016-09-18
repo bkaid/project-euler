@@ -2,6 +2,8 @@
 const problem7 = require('./problem-0007');
 
 let n = 10001;
-let result = problem7.nthPrime(n);
-console.log(`What is the ${n} prime number?`);
-console.log(`Result: ${result}`);
+
+module.exports = {
+  description: `What is the ${n} prime number?`,
+  result: () => problem7.nthPrime(n)
+};

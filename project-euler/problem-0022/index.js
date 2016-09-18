@@ -8,6 +8,7 @@ let names =
     .replace(/^"|"$/g, '')
     .split('","');
 
-let result = problem22.namesScore(names);
-console.log('What is the total of all the name scores in the file?');
-console.log(`${result}`);
+module.exports = {
+  description: 'What is the total of all the name scores in the file?',
+  result: () => problem22.namesScore(names)
+};

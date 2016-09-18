@@ -25,6 +25,9 @@ let input =
 let grid = [];
 input.split('\n').forEach(value => grid.push(value.split(' ').map(Number)));
 let n = 4;
-let result = problem11.largestGridProduct(grid, n);
-console.log(`What is the greatest product of ${n} adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?.`);
-console.log(`Result: ${result}`);
+
+module.exports = {
+  description: `What is the greatest product of ${n} adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?.`,
+  result: () => problem11.largestGridProduct(grid, n)
+};
+

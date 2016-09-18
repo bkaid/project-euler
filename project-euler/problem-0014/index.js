@@ -2,6 +2,8 @@
 const problem14 = require('./problem-0014');
 
 let input = 1000000;
-let result = problem14.longestCollatzChain(input);
-console.log(`Which starting number, under ${input}, produces the Collatz longest chain?`);
-console.log(`${result}`);
+
+module.exports = {
+  description: `Which starting number, under ${input}, produces the Collatz longest chain?`,
+  result: () => problem14.longestCollatzChain(input)
+};

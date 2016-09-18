@@ -2,6 +2,8 @@
 const problem9 = require('./problem-0009');
 
 let n = 1000;
-let result = problem9.maxPythagoreanTripletProduct(n);
-console.log(`There exists exactly one Pythagorean triplet for which a + b + c = ${n}. Find the product abc.`);
-console.log(`Result: ${result}`);
+
+module.exports = {
+  description: `There exists exactly one Pythagorean triplet for which a + b + c = ${n}. Find the product abc.`,
+  result: () => problem9.maxPythagoreanTripletProduct(n)
+};

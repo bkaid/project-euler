@@ -1,6 +1,7 @@
 'use strict';
 const problem23 = require('./problem-0023');
 
-let result = problem23.nonAbundantSums();
-console.log('Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.');
-console.log(`${result}`);
+module.exports = {
+  description: 'Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.',
+  result: () => problem23.nonAbundantSums()
+};

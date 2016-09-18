@@ -103,6 +103,7 @@ let input =
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690`.split('\n');
 
-let result = problem13.largeSum(input).toString().replace('.', '').substring(0, 10);
-console.log(`Work out the first ten digits of the sum of the following ${input.length} ${input[0].length}-digit numbers.`);
-console.log(`Result: ${result}`);
+module.exports = {
+  description: `Work out the first ten digits of the sum of the following ${input.length} ${input[0].length}-digit numbers.`,
+  result: () => problem13.largeSum(input).toString().replace('.', '').substring(0, 10)
+};

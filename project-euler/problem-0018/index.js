@@ -19,6 +19,7 @@ let input =
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23`;
 let triangle = input.split('\n').map(line => line.trim().split(' ').map(Number));
 
-let result = problem18.maximumPathSum(triangle);
-console.log(`Find the maximum total from top to bottom of the triangle below:\n ${input}`);
-console.log(`${result}`);
+module.exports = {
+  description: `Find the maximum total from top to bottom of the triangle below:\n ${input}`,
+  result: () => problem18.maximumPathSum(triangle)
+};
