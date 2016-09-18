@@ -1,6 +1,6 @@
 See [https://projecteuler.net/problem=1]()
 
-Run: `node project-euler/problem-0001`
+Run: `node project-euler 0001`
 
 This problem at first seemed easy. It could be brute-forced with *O(n)* by looping through each number and checking the modulo of 3 or 5 and summing appropriately:
 

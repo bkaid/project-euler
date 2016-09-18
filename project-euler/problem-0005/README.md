@@ -1,6 +1,6 @@
 See [https://projecteuler.net/problem=5]()
 
-Run: `node project-euler/problem-0005`
+Run: `node project-euler 0005`
 
 Brute forcing this by checking each possible number to see if its evenly divisible by each gets pretty slow as the number of items increases. If you manually solve each result from 2-9 (10 is given in problem), a pattern appears:
 

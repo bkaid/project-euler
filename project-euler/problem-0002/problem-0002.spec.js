@@ -12,7 +12,7 @@ describe('sumEvenFibonacciTerms', () => {
     let sum = problem2.sumEvenFibonacciTerms(max);
     expect(sum.toString()).toBe('44');
   });
-  
+
   it('should sum large inputs', () => {
     let max = new BigNumber('400000000000000000');
     let sum = problem2.sumEvenFibonacciTerms(max);

@@ -5,8 +5,8 @@
  * @param {Number} max
  * @returns {Number}
  */
-exports.distinctPowers = (max) => {
-  // get the total number of combinations, including duplicates 
+exports.distinctPowers = max => {
+  // get the total number of combinations, including duplicates
   let result = Math.pow((max - 1), 2);
 
   // calculate the number of powers to check, eg 2^x<=max (2^6<=100)
@@ -16,7 +16,6 @@ exports.distinctPowers = (max) => {
   // check the highest powers first to find numbers a that can be raised to the
   // square, cube, 4th, 5th, 5th, etc. power
   for (let power = powers; power >= 2; power--) {
-
     // all numbers for a that can be written as a number to the ^power and not a larger power
     // will have the same number of duplicates that will need to be removed.
     // calculate that number by scanning from b to max to find possible duplicates
@@ -52,7 +51,7 @@ exports.distinctPowers = (max) => {
 exports.nthRoot = (value, root) => {
   if (root === 3) {
     return Math.cbrt(value);
-  } else {
-    return Math.pow(value, 1 / root);
   }
+
+  return Math.pow(value, 1 / root);
 };

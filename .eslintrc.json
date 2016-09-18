@@ -6,17 +6,21 @@
       "node": true,
       "jasmine": true
   },
-  "extends": "eslint:recommended",
+  "extends": "xo",
   "parserOptions": {
       "sourceType": "module"
   },
   "rules": {
+      "indent": ["error", 2, { "SwitchCase": 1 } ],
+      "max-depth": "off",
+      "max-params": "off",
       "no-console": "off",
-      "indent": ["error", 2],
-      "linebreak-style": "off",
+      "no-extend-native": "off",
+      "no-labels": "off",
+      "no-prototype-builtins": "off",
+      "no-unmodified-loop-condition": "off",
       "no-unused-vars": ["error", { "args": "none" } ],
-      "quotes": ["error", "single"],
-      "semi": ["error", "always"],
+      "radix": ["error", "as-needed"],
       "valid-jsdoc": [
         "error",
         { 

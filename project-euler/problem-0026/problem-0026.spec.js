@@ -2,7 +2,7 @@
 const problem26 = require('./problem-0026');
 
 describe('largestReciprocalCycle', () => {
-  beforeEach(function() {
+  beforeEach(function () {
     problem26.largestReciprocalCycles = new Map();
   });
 

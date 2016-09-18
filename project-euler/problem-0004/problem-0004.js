@@ -8,9 +8,10 @@
  */
 exports.largestPalindromeProduct = (digits, max) => {
   let maxDigits = Number('9'.repeat(digits));
-  let a = maxDigits, b = maxDigits;
+  let a = maxDigits;
+  let b = maxDigits;
   let result = 0;
-  
+
   while (a > 0) {
     let product = a * b;
     if (product > result && (!max || product < max) && exports.isPalindrome(product)) {
@@ -27,11 +28,11 @@ exports.largestPalindromeProduct = (digits, max) => {
   return result;
 };
 
-/** 
+/**
  * Returns true if a number reads the same both ways
- * @param {Number} number
+ * @param {Number} value
  * @returns {Boolean}
  */
-exports.isPalindrome = (number) => {
-  return number.toString() === number.toString().split('').reverse().join('');
+exports.isPalindrome = value => {
+  return value.toString() === value.toString().split('').reverse().join('');
 };

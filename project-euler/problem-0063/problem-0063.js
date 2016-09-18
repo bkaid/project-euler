@@ -7,7 +7,7 @@ const BigNumber = require('bignumber.js');
  * @param {Number} n
  * @returns {BigNumber[]}
  */
-exports.powerDigits = (n) => {
+exports.powerDigits = n => {
   let results = [];
   for (let x = Math.ceil(Math.pow(10, (n - 1) / n)); x < 10; x++) {
     results.push(new BigNumber(x).pow(n));
@@ -28,7 +28,7 @@ exports.powerDigitCount = () => {
     nthValues = exports.powerDigits(n);
     count += nthValues.length;
     n++;
-  } while(nthValues.length);
+  } while (nthValues.length);
 
   return count;
 };

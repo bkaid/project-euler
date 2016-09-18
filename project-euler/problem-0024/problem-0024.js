@@ -17,7 +17,7 @@ exports.nthLexicographicPermutation = (array, n) => {
   // determine the 0-based factoradic index for the permutation requested.
   let factoradic = exports.toFactoradic(n - 1);
 
-  for(let i = 0; i < factoradic.length; i++) {
+  for (let i = 0; i < factoradic.length; i++) {
     if (factoradic[i]) {
       // remove the value at factoradic index, skipping over previously checked
       // postions, and offsetting difference in widths of array vs factoradic
@@ -38,25 +38,25 @@ exports.nthLexicographicPermutation = (array, n) => {
  * @param {Number} decimal
  * @returns {Number[]}
  */
-exports.toFactoradic = (decimal) => {
+exports.toFactoradic = decimal => {
   // determine the max factorial needed to represent the number.
   // the number of digits of the factoradic will be the max factorial + 1
   let factorDecimal = 1;
   let maxFactorNeeded = 0;
-  while(factorDecimal * (maxFactorNeeded + 1) <= decimal) {
+  while (factorDecimal * (maxFactorNeeded + 1) <= decimal) {
     maxFactorNeeded++;
     factorDecimal *= maxFactorNeeded;
   }
 
   let input = new BigNumber(decimal);
   let factoradic = [];
-  for(let i = maxFactorNeeded; i >= 0; i--) {
+  for (let i = maxFactorNeeded; i >= 0; i--) {
     // determine the base value for the position by calculating how many times
     // the current value is divisible by the current factorial
     let factorial = toFactorial(i);
     let factorialCount = input.div(factorial).floor();
 
-    // reduce the value to the remainder of what couldnt be represented 
+    // reduce the value to the remainder of what couldnt be represented
     // by the current factorial
     input = input.mod(factorial);
 

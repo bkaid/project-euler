@@ -15,7 +15,7 @@ const BigNumber = require('bignumber.js');
  */
 exports.firstOfMonthSundays = (startYear, startMonth, startDay, endYear, endMonth, endDay) => {
   // take the year modulo 400 to support very large year numbers
-  let yearRange = new BigNumber(endYear).minus(startYear).toNumber(); 
+  let yearRange = new BigNumber(endYear).minus(startYear).toNumber();
   startYear = new BigNumber(startYear).modulo(400).toNumber();
   endYear = new BigNumber(startYear).plus(yearRange).toNumber();
 

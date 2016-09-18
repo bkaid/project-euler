@@ -15,12 +15,12 @@ exports.largestGridProduct = (grid, n) => {
       let diagonalLeft = null;
       let diagonalRight = null;
 
-      for(let k = 0; k < n && k < grid.length - i && k < row.length - j; k++) {
+      for (let k = 0; k < n && k < grid.length - i && k < row.length - j; k++) {
         diagonalLeft = diagonalLeft === null ? 1 : diagonalLeft;
         diagonalLeft *= grid[i + k][j + k];
       }
 
-      for(let k = 0; k < n && j >= n - 1 && grid.length - i >= n; k++) {
+      for (let k = 0; k < n && j >= n - 1 && grid.length - i >= n; k++) {
         diagonalRight = diagonalRight === null ? 1 : diagonalRight;
         diagonalRight *= grid[i + k][j - k];
       }

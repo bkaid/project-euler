@@ -2,10 +2,10 @@
 const problem21 = require('./problem-0021');
 
 describe('amicableNumberSum', () => {
-  beforeEach(function() {
+  beforeEach(function () {
     problem21.properDivisorSums = [];
   });
-  
+
   it('calculates known input', () => {
     expect(problem21.amicableNumberSum(285)).toBe(504);
   });

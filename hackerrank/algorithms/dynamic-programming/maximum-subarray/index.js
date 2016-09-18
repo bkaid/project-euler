@@ -1,7 +1,7 @@
 'use strict';
 require('./max-subarray');
 
-let input = 
+let input =
 `2 
 4
 1 2 3 4
@@ -10,7 +10,7 @@ let input =
 
 input = input.split('\n');
 let testCaseCount = parseInt(input.shift());
-for(let i = 0; i < testCaseCount; i++) {
+for (let i = 0; i < testCaseCount; i++) {
   input.shift();
   let array = input.shift().split(' ').map(Number);
   let maxContiguous = array.maxSubArray();

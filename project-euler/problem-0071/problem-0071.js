@@ -9,7 +9,7 @@
  * @returns {{numerator: number, denominator: number}}
  */
 exports.maxReducedProperFraction = (maxDenominator, limitNumerator, limitDenominator) => {
-  let best = { numerator: 0, denominator: 1 };
+  let best = {numerator: 0, denominator: 1};
 
   /*
     For all denominators 1 to max (1000000), solve for numerator below limit.
@@ -20,7 +20,7 @@ exports.maxReducedProperFraction = (maxDenominator, limitNumerator, limitDenomin
       d     7 (limitD)
   */
   for (let d = maxDenominator; d > 2; d--) {
-    let n = Math.floor((limitNumerator * d - 1) / limitDenominator);
+    let n = Math.floor(((limitNumerator * d) - 1) / limitDenominator);
 
     /*
       Test that the current numerator is better than the best found so far

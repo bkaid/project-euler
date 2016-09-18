@@ -1,7 +1,7 @@
 'use strict';
 const isFunny = require('./funnyString');
 
-let input = 
+let input =
 `2
 acxz
 bcxz`;

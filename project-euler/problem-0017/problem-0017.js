@@ -43,11 +43,11 @@ exports.BRITISH_ENGLISH = true;
  * @param {Number} n
  * @returns {String}
  */
-let toWords = exports.toWords = (n) => {
+let toWords = exports.toWords = n => {
   if (n < 0) {
     return 'negative ' + Math.abs(toWords(n));
   }
-  
+
   if (n < 20) {
     return cardinalNumbers[n];
   }
@@ -55,26 +55,27 @@ let toWords = exports.toWords = (n) => {
   if (n < 100) {
     let tens = Math.floor(n / 10) * 10;
     let ones = n % 10;
-    let separator = exports.BRITISH_ENGLISH ? '-' : ' '; 
+    let separator = exports.BRITISH_ENGLISH ? '-' : ' ';
     return cardinalNumbers[tens] + (ones ? separator + toWords(ones) : '');
   }
 
   if (n < 1000) {
     let hundreds = Math.floor(n / 100);
-    let remainder = n % (100 * hundreds); 
+    let remainder = n % (100 * hundreds);
     let separator = exports.BRITISH_ENGLISH ? ' and ' : ' ';
     return toWords(hundreds) + ' ' + cardinalNumbers[100] + (remainder ? separator + toWords(remainder) : '');
   }
 
   let result = '';
-  for(let i = 15; i >= 3; i -= 3) {
+  for (let i = 15; i >= 3; i -= 3) {
     let base = Math.pow(10, i);
     let units = Math.floor(n / base);
     if (units) {
-      let remainder = n % (base * units); 
+      let remainder = n % (base * units);
       result += toWords(units) + ' ' + cardinalNumbers[base] + (remainder ? ' ' + toWords(remainder) : '');
       n /= base;
     }
   }
+
   return result;
 };

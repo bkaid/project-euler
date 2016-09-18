@@ -12,7 +12,7 @@ describe('LinkedList', () => {
     linkedList.add('foo');
     expect(linkedList.head).not.toBeNull();
   });
-  
+
   it('should have next pointer set when multiple items added', () => {
     const linkedList = new SinglyLinkedList();
     linkedList.add('foo');

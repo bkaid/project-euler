@@ -6,7 +6,7 @@ const BigNumber = require('bignumber.js');
  * @param {Number} below
  * @returns {BigNumber}
  */
-exports.sumMultiplesOf3And5 = (below) => {
+exports.sumMultiplesOf3And5 = below => {
   let max = below - 1;
   let three = exports.sumNumbersDivisibleBy(3, max);
   let five = exports.sumNumbersDivisibleBy(5, max);
@@ -32,7 +32,7 @@ exports.sumNumbersDivisibleBy = (divisibleBy, max) => {
  * @param {Number} n
  * @returns {BigNumber}
  */
-exports.sumIntegersFrom1To = (n) => {
+exports.sumIntegersFrom1To = n => {
   let sum = new BigNumber(n).times(n + 1).dividedBy(2);
   return sum;
 };

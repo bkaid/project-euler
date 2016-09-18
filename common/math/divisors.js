@@ -17,7 +17,7 @@ exports.properDivisorSum = n => {
   let factors = prime.primeFactorization(n);
   let result = factors.reduce((previous, current) => {
     let factorSum = 1;
-    for(let i = 1; i <= current.exponent; i++) {
+    for (let i = 1; i <= current.exponent; i++) {
       factorSum += Math.pow(current.base, i);
     }
     return previous * factorSum;

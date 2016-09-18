@@ -115,7 +115,7 @@ let selfPowersLookup = new Map([
 exports.selfPowers = (n, digits) => {
   let modulo = Math.pow(10, digits);
 
-  let start = Array.from(selfPowersLookup).map(([key, value]) => ({ key, value })).reduce((previous, current) =>
+  let start = Array.from(selfPowersLookup).map(([key, value]) => ({key, value})).reduce((previous, current) =>
     current.key <= n ? current : previous
   );
 

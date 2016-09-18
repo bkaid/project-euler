@@ -34,7 +34,7 @@ exports.digitLength = n => {
  * @returns {Number}
  */
 Number.prototype.rotate = Number.prototype.rotate || function () {
-  return parseInt(this / 10 + (this % 10) * Math.pow(10, exports.digitLength(this) - 1));
+  return parseInt((this / 10) + ((this % 10) * Math.pow(10, exports.digitLength(this) - 1)));
 };
 
 /**
@@ -51,7 +51,6 @@ Number.prototype.toDigits = Number.prototype.toDigits || function () {
   return digits.reverse();
 };
 
-
 /**
  * Convert an array of digits to a number
  * @returns {Number}
@@ -64,7 +63,7 @@ Array.prototype.toNumber = Array.prototype.toNumber || function () {
     while (digit >= power) {
       power *= 10;
     }
-    result = (result || 0) * power + digit;
+    result = ((result || 0) * power) + digit;
   });
 
   return result;

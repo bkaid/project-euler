@@ -1,9 +1,7 @@
 'use strict';
 const problem18 = require('./problem-0018');
 
-console.time('Elapsed Time');
-
-let input = 
+let input =
 `             75
              95 64
             17 47 82
@@ -24,4 +22,3 @@ let triangle = input.split('\n').map(line => line.trim().split(' ').map(Number))
 let result = problem18.maximumPathSum(triangle);
 console.log(`Find the maximum total from top to bottom of the triangle below:\n ${input}`);
 console.log(`${result}`);
-console.timeEnd('Elapsed Time');

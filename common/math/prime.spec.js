@@ -13,7 +13,7 @@ describe('isPrime', () => {
   it('should return false for known non-prime number', () => {
     expect(prime.isPrime(9)).toBeFalsy();
   });
-  
+
   it('should return false for 1', () => {
     expect(prime.isPrime(1)).toBeFalsy();
   });
@@ -25,11 +25,11 @@ describe('isPrime', () => {
 
 describe('primeFactorization', () => {
   it('calculates prime factorization for known input', () => {
-    expect(prime.primeFactorization(196)).toEqual([{ base: 2, exponent: 2 }, { base: 7, exponent: 2 }]);
+    expect(prime.primeFactorization(196)).toEqual([{base: 2, exponent: 2}, {base: 7, exponent: 2}]);
   });
 
   it('calculates for large primes', () => {
-    expect(prime.primeFactorization(32416190071)).toEqual([{ base: 32416190071, exponent: 1 }]);
+    expect(prime.primeFactorization(32416190071)).toEqual([{base: 32416190071, exponent: 1}]);
   });
 });
 

@@ -2,7 +2,7 @@
 
 let i = 0;
 let collatzChainCache = [0, 1];
-let maxChain = [ 1 ];
+let maxChain = [1];
 let maxChainLength = 1;
 
 /**
@@ -10,17 +10,16 @@ let maxChainLength = 1;
  * @param {Number} n
  * @returns {Number}
  */
-exports.longestCollatzChain = (n) => {
+exports.longestCollatzChain = n => {
   while (i <= n) {
     if (!collatzChainCache[i]) {
-
       let sequence = i;
       let chainLength = 0;
 
       // stop once once sequence is down to 1 or we've seen the sequence before
       while (sequence > 1 && sequence >= i) {
         if (sequence % 2) {
-          sequence = sequence * 3 + 1;
+          sequence = (sequence * 3) + 1;
         } else {
           sequence /= 2;
         }

@@ -3,13 +3,13 @@ const problem24 = require('./problem-0024');
 
 describe('nthLexicographicPermutation', () => {
   it('calculates nth lexicographic permutation for unsorted input', () => {
-    let array = [2,1,0];
-    expect(problem24.nthLexicographicPermutation(array, 1)).toEqual([0,1,2]);
-    expect(problem24.nthLexicographicPermutation(array, 2)).toEqual([0,2,1]);
-    expect(problem24.nthLexicographicPermutation(array, 3)).toEqual([1,0,2]);
-    expect(problem24.nthLexicographicPermutation(array, 4)).toEqual([1,2,0]);
-    expect(problem24.nthLexicographicPermutation(array, 5)).toEqual([2,0,1]);
-    expect(problem24.nthLexicographicPermutation(array, 6)).toEqual([2,1,0]);
+    let array = [2, 1, 0];
+    expect(problem24.nthLexicographicPermutation(array, 1)).toEqual([0, 1, 2]);
+    expect(problem24.nthLexicographicPermutation(array, 2)).toEqual([0, 2, 1]);
+    expect(problem24.nthLexicographicPermutation(array, 3)).toEqual([1, 0, 2]);
+    expect(problem24.nthLexicographicPermutation(array, 4)).toEqual([1, 2, 0]);
+    expect(problem24.nthLexicographicPermutation(array, 5)).toEqual([2, 0, 1]);
+    expect(problem24.nthLexicographicPermutation(array, 6)).toEqual([2, 1, 0]);
   });
 });
 

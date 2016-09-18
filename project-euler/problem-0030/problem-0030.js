@@ -6,7 +6,7 @@ require('../../common/math/digits');
  * @param {Number} power
  * @returns {Number}
  */
-exports.digitNthPowerSum = (power) => {
+exports.digitNthPowerSum = power => {
   let result = 0;
 
   // calculate upper limit

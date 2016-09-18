@@ -10,7 +10,7 @@ describe('largestPrimeFactor', () => {
     let result = problem3.largestPrimeFactor(13195);
     expect(result).toBe(29);
   });
-  
+
   it('should find largest prime factor for known input', () => {
     expect(problem3.largestPrimeFactor(18)).toBe(3);
   });
@@ -23,5 +23,4 @@ describe('largestPrimeFactor', () => {
     let result = problem3.largestPrimeFactor(prime);
     expect(result).toBe(prime);
   });
-
 });

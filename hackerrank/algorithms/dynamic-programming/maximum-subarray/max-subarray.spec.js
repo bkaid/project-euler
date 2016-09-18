@@ -11,7 +11,6 @@ describe('maxSubarray', () => {
   });
 });
 
-
 describe('maxSubArrayNonContigious', () => {
   it('should calculate max contiguous subarray for known input', () => {
     expect([-2, 1, -3, 4, -1, 2, 1, -5, 4].maxSubArrayNonContigious()).toBe(12);

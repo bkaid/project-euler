@@ -18,8 +18,8 @@ exports.digitCancellingFractions = (digits, digitsToCancel) => {
       let numeratorDigits = numerator.toDigits();
       let denominatorDigits = denominator.toDigits();
 
-      let numeratorIntersection = numeratorDigits.filter((n) => n > 0 && denominatorDigits.indexOf(n) != -1);
-      let denominatorIntersection = denominatorDigits.filter((n) => n > 0 && numeratorDigits.indexOf(n) != -1);
+      let numeratorIntersection = numeratorDigits.filter(n => n > 0 && denominatorDigits.indexOf(n) !== -1);
+      let denominatorIntersection = denominatorDigits.filter(n => n > 0 && numeratorDigits.indexOf(n) !== -1);
 
       if (numeratorIntersection.length >= digitsToCancel && denominatorIntersection.length >= digitsToCancel) {
         combination:
@@ -33,8 +33,7 @@ exports.digitCancellingFractions = (digits, digitsToCancel) => {
                   let cancelledNumerator = prunedNumerator.toNumber();
                   let cancelledDenominator = prunedDenominator.toNumber();
                   if (cancelledNumerator / cancelledDenominator === value) {
-                    //console.log(`${numerator}/${denominator} = ${cancelledNumerator}/${cancelledDenominator}`);
-                    result.push({ numerator: numerator, denominator: denominator });
+                    result.push({numerator: numerator, denominator: denominator});
                     break combination;
                   }
                 }

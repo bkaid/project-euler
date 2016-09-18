@@ -1,3 +1,3 @@
 See [https://projecteuler.net/problem=27]()
 
-Run: `node project-euler/problem-0027`
+Run: `node project-euler 0027`

@@ -1,6 +1,6 @@
 See [https://projecteuler.net/problem=15]()
 
-Run: `node project-euler/problem-0015`
+Run: `node project-euler 0015`
 
 According to [lattice path documentation](https://en.wikipedia.org/wiki/Lattice_path#Combinations_and_NE_lattice_paths) on Wikipedia, the number of lattice paths for a square from (0,0) to (n,n) is equal to the binomial coefficient:
 

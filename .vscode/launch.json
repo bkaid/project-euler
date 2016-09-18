@@ -5,9 +5,9 @@
       "name": "Launch",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceRoot}/project-euler/problem-0035/index.js",
+      "program": "${workspaceRoot}/project-euler/index.js",
       "stopOnEntry": false,
-      "args": [],
+      "args": ["35"],
       "cwd": "${workspaceRoot}",
       "preLaunchTask": null,
       "runtimeExecutable": null,
@@ -17,7 +17,7 @@
       "env": {
         "NODE_ENV": "development"
       },
-      "externalConsole": false,
+      "console": "internalConsole",
       "sourceMaps": false,
       "outDir": null
     },

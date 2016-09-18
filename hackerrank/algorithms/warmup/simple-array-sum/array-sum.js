@@ -5,4 +5,4 @@
  * @param {Number[]} input
  * @returns {Number}
  */
-module.exports = (input) => input.reduce((previous, current) => previous + current);
+module.exports = input => input.reduce((previous, current) => previous + current);

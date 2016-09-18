@@ -10,7 +10,7 @@ describe('largestPalindromeProduct', () => {
     let result = problem4.largestPalindromeProduct(2);
     expect(result).toBe(9009);
   });
-  
+
   it('should find largest palindrome product under N for given sample input', () => {
     let result = problem4.largestPalindromeProduct(3, 101110);
     expect(result).toBe(101101);

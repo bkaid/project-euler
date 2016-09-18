@@ -15,7 +15,7 @@ Array.prototype.combinations = function (size) {
     return [[]];
   }
 
-  if (size == this.length) {
+  if (size === this.length) {
     return [this];
   }
 
@@ -46,11 +46,10 @@ Array.prototype.prunedCombinations = function (remove) {
 };
 
 function prunedCombinations(haystack, needles, index, accumulator) {
-  if (needles.length == 0) {
+  if (needles.length === 0) {
     // no more values to remove, solution found
     accumulator.push(haystack);
-  }
-  else if (index < haystack.length) {
+  } else if (index < haystack.length) {
     if (haystack[index] === needles[0]) {
       // matched one needle, remove it and search for the rest
       var without = haystack.slice();
@@ -125,7 +124,7 @@ Array.prototype.nextPermutation = function () {
     i++;
     j--;
   }
-  
+
   return true;
 };
 

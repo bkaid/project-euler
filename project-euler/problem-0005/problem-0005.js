@@ -7,7 +7,7 @@ const prime = require('../../common/math/prime');
  * @param {Number} n Max divisor to check for
  * @returns {Number}
  */
-exports.smallestMultiple = (n) => {
+exports.smallestMultiple = n => {
   // 1: get all prime numbers
   let products = [];
   for (let i = 2; i <= n; i++) {
@@ -23,7 +23,7 @@ exports.smallestMultiple = (n) => {
       raised *= prime;
       products[i] = raised;
     }
-  }); 
+  });
 
   // 3: multiply products
   let result = products.reduce((previous, current) => previous * current, 1);

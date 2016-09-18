@@ -15,9 +15,9 @@ exports.coinChangePermutations = (coins, n) => {
   permutations[0] = 1;
 
   // loop over each coin bottom up
-  for(let coinIndex = 0; coinIndex < coins.length; coinIndex++) {
+  for (let coinIndex = 0; coinIndex < coins.length; coinIndex++) {
     // calculate change for coin value to n for coin
-    for(let i = coins[coinIndex]; i <= n; i++) {
+    for (let i = coins[coinIndex]; i <= n; i++) {
       // # of combinations is equal to looking up i - current coins value, added to the existing value for i
       permutations[i] += permutations[i - coins[coinIndex]];
     }

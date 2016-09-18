@@ -1,11 +1,11 @@
 'use strict';
 
-/** 
+/**
  * Returns true if a number is prime
  * @param {Number} number
  * @returns {Boolean}
  */
-exports.isPrime = (number) => {
+exports.isPrime = number => {
   if (number <= 1) {
     return false;
   }
@@ -13,7 +13,7 @@ exports.isPrime = (number) => {
   let sqrt = Math.sqrt(number);
   let divisor = 2;
 
-  // only need to search for prime numbers up to the square root of the value. 
+  // only need to search for prime numbers up to the square root of the value.
   // if a number is not prime, it can be factored into two factors, a * b.
   // if a and b were both greater than the square root of the number, a * b
   // would be greater than the value so at least one of its factors must be less.
@@ -30,7 +30,7 @@ exports.isPrime = (number) => {
  * @param {Number} value
  * @returns {{base: number, exponent: number}[]}
  */
-exports.primeFactorization = (value) => {
+exports.primeFactorization = value => {
   let primeFactorization = [];
   let lookForFactors = value > 1;
 
@@ -58,7 +58,7 @@ exports.primeFactorization = (value) => {
       divisor = Math.max(value, divisor);
     }
 
-    primeFactorization.push({ base: divisor, exponent: exponent });
+    primeFactorization.push({base: divisor, exponent: exponent});
   }
 
   return primeFactorization;
@@ -66,6 +66,7 @@ exports.primeFactorization = (value) => {
 
 /**
  * Sieve of Eratosthenes to generate primes up to a max number
+ * @param {Number} min
  * @param {Number} max
  * @returns {Number[]}
  */
@@ -80,10 +81,10 @@ exports.getPrimes = (min, max) => {
   sieve[0] = false;
   sieve[1] = false;
 
-  for(let i = 2; i <= sqrt; i++) {
+  for (let i = 2; i <= sqrt; i++) {
     if (sieve[i]) {
       // eliminate all multiples of i
-      for(let j = i * i; j <= max; j += i) {
+      for (let j = i * i; j <= max; j += i) {
         sieve[j] = false;
       }
     }

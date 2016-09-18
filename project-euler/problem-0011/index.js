@@ -1,8 +1,7 @@
 'use strict';
 const problem11 = require('./problem-0011');
 
-console.time('Elapsed Time');
-let input = 
+let input =
 `08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -24,9 +23,8 @@ let input =
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48`;
 let grid = [];
-input.split('\n').forEach((value) => grid.push(value.split(' ').map(Number)));
+input.split('\n').forEach(value => grid.push(value.split(' ').map(Number)));
 let n = 4;
 let result = problem11.largestGridProduct(grid, n);
 console.log(`What is the greatest product of ${n} adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?.`);
 console.log(`Result: ${result}`);
-console.timeEnd('Elapsed Time');

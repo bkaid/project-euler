@@ -1,7 +1,7 @@
 'use strict';
 
-/** 
- * Class representing a node in a singly linked list 
+/**
+ * Class representing a node in a singly linked list
  */
 class Node {
 
@@ -16,8 +16,8 @@ class Node {
   }
 }
 
-/** 
- * Class representing a singly linked list 
+/**
+ * Class representing a singly linked list
  */
 class LinkedList {
 
@@ -36,10 +36,7 @@ class LinkedList {
   add(data) {
     var node = new Node(data, null);
 
-    if (!this.head) {
-      // if there are no items in the linked list, set this as the head 
-      this.head = node;
-    } else {
+    if (this.head) {
       // move to the end of the list and set the next property of the last node
       // to the newly created node
       let current = this.head;
@@ -47,6 +44,9 @@ class LinkedList {
         current = current.next;
       }
       current.next = node;
+    } else {
+      // if there are no items in the linked list, set this as the head
+      this.head = node;
     }
   }
 }

@@ -6,7 +6,7 @@ const BigNumber = require('bignumber.js');
  * @param {BigNumber} max
  * @returns {BigNumber}
  */
-exports.sumEvenFibonacciTerms = (max) => {
+exports.sumEvenFibonacciTerms = max => {
   let sum = new BigNumber(0);
   let previous = new BigNumber(0);
   let current = new BigNumber(1);

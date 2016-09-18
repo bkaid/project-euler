@@ -1,7 +1,7 @@
 'use strict';
 const BigNumber = require('bignumber.js');
-BigNumber.config({ EXPONENTIAL_AT: 1e+9 });
-BigNumber.config({ POW_PRECISION: 1e+9 });
+BigNumber.config({EXPONENTIAL_AT: 1e+9});
+BigNumber.config({POW_PRECISION: 1e+9});
 
 let nDigitFibonacciIndexCache = [];
 
@@ -27,7 +27,7 @@ exports.nDigitFibonacciIndex = n => {
     index++;
 
     let length = current.toString().length;
-    nDigitFibonacciIndexCache[length] = nDigitFibonacciIndexCache[length] || index; 
+    nDigitFibonacciIndexCache[length] = nDigitFibonacciIndexCache[length] || index;
   }
 
   return index;

@@ -9,14 +9,14 @@ exports.properDivisorCache = [];
  * @returns {Number}
  */
 exports.amicableNumberSum = n => {
-  for(let i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     if (!exports.properDivisorCache[i]) {
       exports.properDivisorCache[i] = divisors.properDivisorSum(i);
     }
   }
 
   let amicableNumberSum = 0;
-  for(let i = 1; i < n; i++) {
+  for (let i = 1; i < n; i++) {
     let properDivisorSum = exports.properDivisorCache[i];
     let properDivisorPair = exports.properDivisorCache[properDivisorSum];
 
@@ -26,7 +26,7 @@ exports.amicableNumberSum = n => {
 
     if (i === properDivisorPair && i !== properDivisorSum) {
       amicableNumberSum += i;
-    } 
+    }
   }
 
   return amicableNumberSum;

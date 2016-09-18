@@ -15,7 +15,7 @@ exports.truncatablePrimeSum = () => {
     if (prime.isPrime(i)) {
       let isTruncatablePrime = true;
       let digitLength = digits.digitLength(i);
-      for(let j = 1; j < digitLength; j++) {
+      for (let j = 1; j < digitLength; j++) {
         if (!prime.isPrime(digits.truncateLeft(i, j)) || !prime.isPrime(digits.truncateRight(i, j))) {
           isTruncatablePrime = false;
           break;

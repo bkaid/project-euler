@@ -6,6 +6,6 @@ const BigNumber = require('bignumber.js');
  * @param {Number[]} numbers
  * @returns {BigNumber}
  */
-exports.largeSum = (numbers) => {
+exports.largeSum = numbers => {
   return numbers.reduce((previous, current) => previous.plus(current), new BigNumber(0));
 };

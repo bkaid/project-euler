@@ -7,8 +7,8 @@ const prime = require('../../common/math/prime');
  * @param {Number} max
  * @returns {{a: number, b: number, n: number}}
  */
-exports.quadraticPrimes = (max) => {
-  let result = { a: null, b: null, n: 0 };
+exports.quadraticPrimes = max => {
+  let result = {a: null, b: null, n: 0};
   for (let a = -max; a < max; a++) {
     for (let b = -max; b < max; b++) {
       let n = 0;

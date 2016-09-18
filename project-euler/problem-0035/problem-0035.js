@@ -8,7 +8,7 @@ require('../../common/arrays');
  * @param {Number} max
  * @returns {Number[]}
  */
-exports.circularPrimes = (max) => {
+exports.circularPrimes = max => {
   let results = [];
   let primes = prime.getPrimes(0, max);
   while (primes.length) {

@@ -1,12 +1,12 @@
 'use strict';
-const prime  = require('../../common/math/prime');
+const prime = require('../../common/math/prime');
 
 /**
  * Calculates first triangular number with a given divisor count
  * @param {Number} n divisor count
  * @returns {Number}
  */
-exports.firstTriangularNumberWithDivisorCount = (n) => {
+exports.firstTriangularNumberWithDivisorCount = n => {
   let divisorCount = 0;
   let triangularNumber = 0;
   let i = 0;
@@ -24,18 +24,18 @@ exports.firstTriangularNumberWithDivisorCount = (n) => {
  * @param {Number} n
  * @returns {Number}
  */
-exports.nthTriangularNumber = (n) => {
+exports.nthTriangularNumber = n => {
   return n * (n + 1) / 2;
 };
 
 /**
  * Calculates the numbers of divisors for a value using the technique from:
  * http://www.gmathacks.com/gmat-math/number-of-factors-of-a-large-integer.html
- * @param {Number} number
+ * @param {Number} value
  * @returns {Number}
  */
-exports.factorCount = (number) => {
-  let primeFactorization = prime.primeFactorization(number);
+exports.factorCount = value => {
+  let primeFactorization = prime.primeFactorization(value);
   let factors = primeFactorization.reduce((previous, current) => previous * (current.exponent + 1), 1);
   return factors;
 };

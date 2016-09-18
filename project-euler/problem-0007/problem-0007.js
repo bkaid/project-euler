@@ -8,10 +8,10 @@ let knownPrimes = [];
  * @param {Number} n
  * @returns {Number}
  */
-exports.nthPrime = (n) => {
+exports.nthPrime = n => {
   let i = knownPrimes.length ? knownPrimes[knownPrimes.length - 1] : 0;
 
-  while(knownPrimes.length < n) {
+  while (knownPrimes.length < n) {
     i += i > 2 ? 2 : 1;
     if (prime.isPrime(i)) {
       knownPrimes.push(i);

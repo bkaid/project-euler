@@ -7,7 +7,7 @@ let cachedMaxPythagoreanTripletProducts = {};
  * @param {Number} n
  * @returns {Number}
  */
-exports.maxPythagoreanTripletProduct = (n) => {
+exports.maxPythagoreanTripletProduct = n => {
   if (!cachedMaxPythagoreanTripletProducts.hasOwnProperty(n)) {
     let max = 0;
     for (let a = 1; a < n / 3; a++) {

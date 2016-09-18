@@ -7,26 +7,26 @@ exports.largestReciprocalCycles = new Map();
  * @param {Number} max
  * @returns {Number}
  */
-exports.largestReciprocalCycle = (max) => {
+exports.largestReciprocalCycle = max => {
   let result = 0;
   let longestPeriodLength = 0;
   let d = 0;
 
-  while(d < max) {
-    if (!exports.largestReciprocalCycles.has(d)) {
+  while (d < max) {
+    if (exports.largestReciprocalCycles.has(d)) {
+      result = exports.largestReciprocalCycles.get(d).result;
+      longestPeriodLength = exports.largestReciprocalCycles.get(d).longestPeriodLength;
+    } else {
       let periodLength = exports.periodLength(1, d);
       if (periodLength > longestPeriodLength) {
         result = d;
         longestPeriodLength = periodLength;
       }
-      exports.largestReciprocalCycles.set(d, { result: result, longestPeriodLength: longestPeriodLength });
-    } else {
-      result = exports.largestReciprocalCycles.get(d).result;
-      longestPeriodLength = exports.largestReciprocalCycles.get(d).longestPeriodLength;
+      exports.largestReciprocalCycles.set(d, {result: result, longestPeriodLength: longestPeriodLength});
     }
     d++;
   }
-  
+
   return result;
 };
 
@@ -50,7 +50,7 @@ exports.periodLength = (numerator, denominator) => {
       remainder = 0;
     } else {
       divisions.set(remainder, position);
-      remainder = remainder % denominator;
+      remainder %= denominator;
       position++;
     }
     if (denominator > remainder) {
