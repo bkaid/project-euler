@@ -6,3 +6,4 @@ console.log(problem.description);
 console.time('Elapsed Time');
 console.log(`Result: ${problem.result()}`);
 console.timeEnd('Elapsed Time');
+process.exit();
