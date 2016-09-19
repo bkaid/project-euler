@@ -1,4 +1,5 @@
 'use strict';
+require('../../common/palindrome');
 
 /**
  * Returns the largest palindrome number made from the product of two N digit numbers
@@ -14,7 +15,7 @@ exports.largestPalindromeProduct = (digits, max) => {
 
   while (a > 0) {
     let product = a * b;
-    if (product > result && (!max || product < max) && exports.isPalindrome(product)) {
+    if (product > result && (!max || product < max) && product.toString().isPalindrome()) {
       result = product;
     }
 
@@ -26,13 +27,4 @@ exports.largestPalindromeProduct = (digits, max) => {
   }
 
   return result;
-};
-
-/**
- * Returns true if a number reads the same both ways
- * @param {Number} value
- * @returns {Boolean}
- */
-exports.isPalindrome = value => {
-  return value.toString() === value.toString().split('').reverse().join('');
 };
