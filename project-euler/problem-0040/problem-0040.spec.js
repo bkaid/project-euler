@@ -15,6 +15,6 @@ describe('champernowneDigit', () => {
     expect(problem40.champernowneDigit(15)).toEqual(2);
     expect(problem40.champernowneDigit(Number.MAX_SAFE_INTEGER)).toEqual(3);
     expect(problem40.champernowneDigit(new BigNumber('9007199254740993'))).toEqual(7);
-    expect(problem40.champernowneDigit(new BigNumber(10).pow(18))).toEqual(7);
+    expect(problem40.champernowneDigit(new BigNumber(10).pow(18))).toEqual(3);
   });
 });
