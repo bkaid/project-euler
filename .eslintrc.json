@@ -20,6 +20,7 @@
       "no-prototype-builtins": "off",
       "no-unmodified-loop-condition": "off",
       "no-unused-vars": ["error", { "args": "none" } ],
+      "object-curly-spacing": ["error", "always"],
       "radix": ["error", "as-needed"],
       "valid-jsdoc": [
         "error",

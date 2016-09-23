@@ -22,7 +22,7 @@ exports.largestReciprocalCycle = max => {
         result = d;
         longestPeriodLength = periodLength;
       }
-      exports.largestReciprocalCycles.set(d, {result: result, longestPeriodLength: longestPeriodLength});
+      exports.largestReciprocalCycles.set(d, { result: result, longestPeriodLength: longestPeriodLength });
     }
     d++;
   }

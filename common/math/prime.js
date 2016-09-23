@@ -58,7 +58,7 @@ exports.primeFactorization = value => {
       divisor = Math.max(value, divisor);
     }
 
-    primeFactorization.push({base: divisor, exponent: exponent});
+    primeFactorization.push({ base: divisor, exponent: exponent });
   }
 
   return primeFactorization;

@@ -14,7 +14,7 @@ exports.sumOfPrimes = n => {
   for (; maxPrimeCheck <= n; maxPrimeCheck++) {
     if (prime.isPrime(maxPrimeCheck)) {
       let sum = maxPrimeCheck + (knownPrimeSums.length ? knownPrimeSums[knownPrimeSums.length - 1].sum : 0);
-      knownPrimeSums.push({prime: maxPrimeCheck, sum: sum});
+      knownPrimeSums.push({ prime: maxPrimeCheck, sum: sum });
     }
   }
 

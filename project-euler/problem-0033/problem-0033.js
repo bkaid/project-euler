@@ -33,7 +33,7 @@ exports.digitCancellingFractions = (digits, digitsToCancel) => {
                   let cancelledNumerator = prunedNumerator.toNumber();
                   let cancelledDenominator = prunedDenominator.toNumber();
                   if (cancelledNumerator / cancelledDenominator === value) {
-                    result.push({numerator: numerator, denominator: denominator});
+                    result.push({ numerator: numerator, denominator: denominator });
                     break combination;
                   }
                 }
