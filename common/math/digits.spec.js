@@ -55,3 +55,9 @@ describe('rotate', () => {
     expect((2341).rotate()).toEqual(1234);
   });
 });
+
+describe('concat', () => {
+  it('concatenates two numbers', () => {
+    expect((123).concat(456)).toEqual(123456);
+  });
+});

@@ -68,3 +68,21 @@ Array.prototype.toNumber = Array.prototype.toNumber || function () {
 
   return result;
 };
+
+/**
+ * Concatenate two numbers
+ * @param {Number} value Number to concat
+ * @returns {Number}
+ */
+Number.prototype.concat = Number.prototype.concat || function (value) {
+  let number = this;
+
+  // get the number of digits being added
+  let digits = exports.digitLength(value);
+
+  // add zeros to the end of the number to make room for addition
+  number *= Math.pow(10, digits);
+
+  // perform the concatenation
+  return number + value;
+};
