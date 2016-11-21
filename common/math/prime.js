@@ -98,3 +98,59 @@ exports.getPrimes = (min, max) => {
     return primes;
   }, []);
 };
+
+
+/**
+ * Sieve of Atkin to generate primes up to a max number
+ * From: https://gist.github.com/farskid/3501b1b981607483a46b76d61e092e6e
+ * @param {Number} limit
+ * @returns {Number[]} Boolean array where primes values are the indexes set to true
+ */
+exports.sieveOfAtkin = limit => {
+  let limitSqrt = Math.sqrt(limit);
+  let sieve = [];
+  let n;
+  let x = 1;
+
+  // prime start from 2, and 3
+  sieve[2] = true;
+  sieve[3] = true;
+
+  for (; x <= limitSqrt; x++) {
+    let xx = x * x;
+    for (let y = 1; y <= limitSqrt; y++) {
+      let yy = y * y;
+      if (xx + yy >= limit) {
+        break;
+      }
+      // first quadratic using m = 12 and r in R1 = {r : 1, 5}
+      n = (4 * xx) + (yy);
+      if (n <= limit && (n % 12 === 1 || n % 12 === 5)) {
+        sieve[n] = !sieve[n];
+      }
+      // second quadratic using m = 12 and r in R2 = {r : 7}
+      n = (3 * xx) + (yy);
+      if (n <= limit && (n % 12 === 7)) {
+        sieve[n] = !sieve[n];
+      }
+      // third quadratic using m = 12 and r in R3 = {r : 11}
+      n = (3 * xx) - (yy);
+      if (x > y && n <= limit && (n % 12 === 11)) {
+        sieve[n] = !sieve[n];
+      }
+    }
+  }
+
+  // false each primes multiples
+  for (n = 5; n <= limitSqrt; n++) {
+    if (sieve[n]) {
+      x = n * n;
+      for (let i = x; i <= limit; i += x) {
+        sieve[i] = false;
+      }
+    }
+  }
+
+  // primes values are the one which sieve[x] = true
+  return sieve;
+};
