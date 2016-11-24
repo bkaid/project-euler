@@ -26,7 +26,7 @@ exports.isPandigital = number => {
     count++;
 
     // remove the current digit from the number
-    number = parseInt(number / 10);
+    number = Math.floor(number / 10);
   }
 
   // make sure every digit up to number of total digits has been seen

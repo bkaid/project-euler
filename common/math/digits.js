@@ -17,7 +17,7 @@ exports.truncateLeft = (n, digits) => {
  * @returns {Number}
  */
 exports.truncateRight = (n, digits) => {
-  return parseInt(n / Math.pow(10, digits));
+  return Math.floor(n / Math.pow(10, digits));
 };
 
 /**
@@ -30,11 +30,24 @@ exports.digitLength = n => {
 };
 
 /**
+ * Calculates the first digit of a number
+ * @param {Number} n
+ * @returns {Number}
+ */
+Number.prototype.firstDigit = Number.prototype.firstDigit || function () {
+  let number = this;
+  while (number >= 10) {
+    number = Math.floor(number / 10);
+  }
+  return number;
+};
+
+/**
  * Rotate digits of a number
  * @returns {Number}
  */
 Number.prototype.rotate = Number.prototype.rotate || function () {
-  return parseInt((this / 10) + ((this % 10) * Math.pow(10, exports.digitLength(this) - 1)));
+  return Math.floor((this / 10) + ((this % 10) * Math.pow(10, exports.digitLength(this) - 1)));
 };
 
 /**
@@ -46,7 +59,7 @@ Number.prototype.toDigits = Number.prototype.toDigits || function () {
   let digits = [];
   while (number > 0) {
     digits[digits.length] = number % 10;
-    number = parseInt(number / 10);
+    number = Math.floor(number / 10);
   }
   return digits.reverse();
 };

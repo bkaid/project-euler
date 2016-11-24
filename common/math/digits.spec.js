@@ -33,6 +33,13 @@ describe('digitLength', () => {
   });
 });
 
+describe('firstDigit', () => {
+  it('gets first digit of a number', () => {
+    expect((987).firstDigit()).toBe(9);
+    expect((7).firstDigit()).toBe(7);
+  });
+});
+
 describe('toDigits', () => {
   it('converts an number to an array of digits', () => {
     expect((3797).toDigits()).toEqual([3, 7, 9, 7]);
