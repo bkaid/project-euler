@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/bkaid/puzzles-js#readme",
   "devDependencies": {
-    "eslint": "^3.5.0",
-    "eslint-config-xo": "^0.15.4",
+    "eslint": "^3.11.1",
+    "eslint-config-xo": "^0.17.0",
     "jasmine-node": "^1.14.5"
   },
   "dependencies": {
-    "bignumber.js": "^2.4.0"
+    "bignumber.js": "^3.0.1"
   }
 }
