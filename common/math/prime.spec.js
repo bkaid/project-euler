@@ -44,11 +44,12 @@ describe('getPrimes', () => {
 
 describe('segmentedSieve', () => {
   it('calculates primes up to known input', () => {
-    expect(prime.sieveOfAtkin(10).filter(p => p).length).toEqual(4);
-    expect(prime.sieveOfAtkin(100).filter(p => p).length).toEqual(25);
-    expect(prime.sieveOfAtkin(1000).filter(p => p).length).toEqual(168);
-    expect(prime.sieveOfAtkin(10000).filter(p => p).length).toEqual(1229);
-    // expect(prime.sieveOfAtkin(100000).filter(p => p).length).toEqual(9592);
-    // expect(prime.sieveOfAtkin(1000000).filter(p => p).length).toEqual(78498);
+    expect(prime.segmentedSieve(0, 10)).toEqual([2, 3, 5, 7]);
+    expect(prime.segmentedSieve(10, 100).length).toEqual(21);
+    expect(prime.segmentedSieve(0, 100).length).toEqual(25);
+    expect(prime.segmentedSieve(0, 1000).length).toEqual(168);
+    expect(prime.segmentedSieve(0, 10000).length).toEqual(1229);
+    expect(prime.segmentedSieve(1000, 10000).length).toEqual(1061);
+    expect(prime.segmentedSieve(0, 100000).length).toEqual(9592);
   });
 });

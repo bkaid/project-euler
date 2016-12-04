@@ -99,58 +99,63 @@ exports.getPrimes = (min, max) => {
   }, []);
 };
 
-
 /**
- * Sieve of Atkin to generate primes up to a max number
- * From: https://gist.github.com/farskid/3501b1b981607483a46b76d61e092e6e
- * @param {Number} limit
- * @returns {Number[]} Boolean array where primes values are the indexes set to true
+ * Segmented prime sieve to reduce memory consumption for large prime ranges
+ * @param {Number} min
+ * @param {Number} max
+ * @returns {Number[]}
  */
-exports.sieveOfAtkin = limit => {
-  let limitSqrt = Math.sqrt(limit);
-  let sieve = [];
-  let n;
-  let x = 1;
+exports.segmentedSieve = (min, max) => {
+  // Compute all primes smaller than or equal to square root of max using simple sieve
+  let segmentSize = Math.floor(Math.sqrt(max)) + 1;
+  let primes = exports.getPrimes(0, segmentSize);
+  let results = primes.filter(p => p >= min);
 
-  // prime start from 2, and 3
-  sieve[2] = true;
-  sieve[3] = true;
+  // divide the range min...max in segments of size sqrt(max)
+  let segmentMin = Math.max(segmentSize, Math.floor(min / segmentSize) * segmentSize);
+  let segmentMax = segmentMin + segmentSize;
 
-  for (; x <= limitSqrt; x++) {
-    let xx = x * x;
-    for (let y = 1; y <= limitSqrt; y++) {
-      let yy = y * y;
-      if (xx + yy >= limit) {
-        break;
+  // While all segments of are not processed, process one segment at a time
+  while (segmentMin < max) {
+    let segment = new Array(segmentSize + 1).fill(true);
+
+    // Use the found primes by up to sqrt n to find primes in current segment range
+    for (let i = 0; i < primes.length; i++) {
+      // Find the minimum number in [segmentMin..segmentMax] that is
+      // a multiple of primes[i]
+      // For example, if segmentMin is 31 and primes[i] is 3,
+      // we start with 33.
+      let lowLimit = Math.floor(segmentMin / primes[i]) * primes[i];
+      if (lowLimit < segmentMin) {
+        lowLimit += primes[i];
       }
-      // first quadratic using m = 12 and r in R1 = {r : 1, 5}
-      n = (4 * xx) + (yy);
-      if (n <= limit && (n % 12 === 1 || n % 12 === 5)) {
-        sieve[n] = !sieve[n];
+
+      /*  Mark multiples of primes[i] in [segmentMin..segmentMax]:
+          We are marking j - segmentMin for j, i.e. each number
+          in range [segmentMin..segmentMax] is mapped to [0, segmentMax-segmentMin]
+          so if range is [50, 100]  marking 50 corresponds
+          to marking 0, marking 51 corresponds to 1 and
+          so on. In this way we need to allocate space only
+          for range  */
+      for (let j = lowLimit; j < segmentMax; j += primes[i]) {
+        segment[j - segmentMin] = false;
       }
-      // second quadratic using m = 12 and r in R2 = {r : 7}
-      n = (3 * xx) + (yy);
-      if (n <= limit && (n % 12 === 7)) {
-        sieve[n] = !sieve[n];
+    }
+
+    // Numbers which are not marked as false are prime
+    for (let i = segmentMin; i < segmentMax; i++) {
+      if (i >= min && i <= max && segment[i - segmentMin] === true) {
+        results.push(i);
       }
-      // third quadratic using m = 12 and r in R3 = {r : 11}
-      n = (3 * xx) - (yy);
-      if (x > y && n <= limit && (n % 12 === 11)) {
-        sieve[n] = !sieve[n];
-      }
+    }
+
+    // Move to next segment
+    segmentMin += segmentSize;
+    segmentMax += segmentSize;
+    if (segmentMax >= max) {
+      segmentMax = max;
     }
   }
 
-  // false each primes multiples
-  for (n = 5; n <= limitSqrt; n++) {
-    if (sieve[n]) {
-      x = n * n;
-      for (let i = x; i <= limit; i += x) {
-        sieve[i] = false;
-      }
-    }
-  }
-
-  // primes values are the one which sieve[x] = true
-  return sieve;
+  return results;
 };

@@ -7,14 +7,12 @@ const prime = require('../../common/math/prime');
  * @returns {{consecutivePrimes: number, prime: number}[]}
  */
 exports.consecutivePrimeSum = max => {
-  let sieve = prime.sieveOfAtkin(max);
+  let sieve = prime.segmentedSieve(0, max);
   let consecutiveSum = [0];
   let previous = 0;
-  sieve.every((isPrime, index) => {
-    if (isPrime) {
-      previous += index;
-      consecutiveSum.push(previous);
-    }
+  sieve.every(value => {
+    previous += value;
+    consecutiveSum.push(previous);
     return previous < max;
   });
 
@@ -23,7 +21,7 @@ exports.consecutivePrimeSum = max => {
   for (let startingIndex = 1; startingIndex <= consecutiveSum.length; startingIndex++) {
     for (let endingIndex = consecutiveSum.length - 1; endingIndex > startingIndex; endingIndex--) {
       let currentValue = consecutiveSum[endingIndex] - consecutiveSum[startingIndex - 1];
-      if (endingIndex - startingIndex > consecutivePrimes && currentValue > maxPrime && sieve[currentValue]) {
+      if (endingIndex - startingIndex > consecutivePrimes && currentValue > maxPrime && sieve.includes(currentValue)) {
         consecutivePrimes = endingIndex - startingIndex + 1;
         maxPrime = currentValue;
       }
