@@ -7,7 +7,7 @@
       "request": "launch",
       "program": "${workspaceRoot}/project-euler/index.js",
       "stopOnEntry": false,
-      "args": ["50"],
+      "args": ["39"],
       "cwd": "${workspaceRoot}",
       "preLaunchTask": null,
       "runtimeExecutable": null,
