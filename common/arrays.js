@@ -91,6 +91,33 @@ Array.prototype.permutations = function () {
 };
 
 /**
+ * Generator to permutate an array
+ * @param {Array} permutation Values to permutate
+ * @returns {Array} A permutated result
+ */
+exports.permute = function * (permutation) {
+  let length = permutation.length;
+  let c = Array(length).fill(0);
+  let i = 1;
+
+  yield permutation;
+  while (i < length) {
+    if (c[i] < i) {
+      let k = (i % 2) ? c[i] : 0;
+      let p = permutation[i];
+      permutation[i] = permutation[k];
+      permutation[k] = p;
+      ++c[i];
+      i = 1;
+      yield permutation;
+    } else {
+      c[i] = 0;
+      ++i;
+    }
+  }
+};
+
+/**
  * Get the next lexographical permutation of an array
  * @memberof Array
  * @returns {Boolean} True if there was another permutation available
