@@ -1,0 +1,10 @@
+node_modules
+Dockerfile
+.dockerignore
+README.md
+LICENSE
+.travis.yml
+.git
+.gitattributes
+.gitignore
+.vscode
