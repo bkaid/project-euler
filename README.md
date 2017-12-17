@@ -5,10 +5,21 @@
 
 [![Project Euler](https://projecteuler.net/profile/bkaid.png)](https://projecteuler.net)
 
-Project Euler problems completed in JavaScript (ES6, Node) and unit tested with Jasmine.
+Project Euler problems completed in Python and JavaScript (ES6, Node) and unit tested with PyTest and Jasmine.
 
 ## Prerequisites
+* [Node.js](https://nodejs.org/)
+* [Python 3](https://www.python.org/downloads/)
+
+OR
+
 * [Docker](https://www.docker.com/)
+
+### Install dependencies
+```sh
+npm install
+pip3 install -r requirements.txt
+```
 
 ### Building Docker image
 ```sh
@@ -18,6 +29,7 @@ docker build -t bkaid/project-euler .
 ### Run unit tests
 ```sh
 docker run -it --rm bkaid/project-euler npm test
+pytest
 ```
 
 ### Run project euler problem
