@@ -13,3 +13,8 @@ install:
 script:
   - pytest
   - npm test
+
+cache:
+  - pip
+  directories:
+    - node_modules
