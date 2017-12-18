@@ -8,5 +8,8 @@ node_js:
 
 install:
   - pip install -r requirements.txt
+  - npm install
 
-script: pytest
+script:
+  - pytest
+  - npm test
