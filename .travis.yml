@@ -3,9 +3,6 @@ language: python
 python:
   - "3.6"
 
-node_js:
-  - "node"
-
 install:
   - pip install -r requirements.txt
   - npm install
@@ -15,6 +12,6 @@ script:
   - npm test
 
 cache:
-  - pip
   directories:
+    - .cache
     - node_modules
