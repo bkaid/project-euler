@@ -16,6 +16,7 @@
       "max-params": "off",
       "no-console": "off",
       "no-extend-native": "off",
+      "capitalized-comments": "off",
       "no-labels": "off",
       "no-prototype-builtins": "off",
       "no-unmodified-loop-condition": "off",
@@ -24,7 +25,7 @@
       "radix": ["error", "as-needed"],
       "valid-jsdoc": [
         "error",
-        { 
+        {
           "requireParamDescription": false,
           "requireReturnDescription": false
         }
