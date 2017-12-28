@@ -29,10 +29,13 @@ docker build -t bkaid/project-euler .
 ### Run unit tests
 ```sh
 docker run -it --rm bkaid/project-euler npm test
-pytest
+
+PYTHONPATH=. pytest
 ```
 
 ### Run project euler problem
 ```sh
 docker run -it --rm bkaid/project-euler node project-euler 0001
+
+python3 problems/problem-0000/problem_0000.py
 ```
