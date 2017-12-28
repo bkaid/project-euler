@@ -8,7 +8,7 @@ install:
   - npm install
 
 script:
-  - pytest
+  - PYTHONPATH=. pytest
   - npm test
 
 cache:
