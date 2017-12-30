@@ -1,5 +1,5 @@
 import time
-from common.series import *
+from common.series import is_pentagonal, is_hexagonal, triangular_number
 
 def project_euler_45():
     i = 285
@@ -12,7 +12,6 @@ def project_euler_45():
 if __name__ == '__main__':
     print('Project Euler #45')
     print('Find the next triangle number after 285 that is also pentagonal and hexagonal.')
-    start_time = time.time()
+    START_TIME = time.time()
     print('Result: {}'.format(project_euler_45()))
-    elapsed_time = time.time() - start_time
-    print('Elapsed time: {} seconds'.format(elapsed_time))
+    print('Elapsed time: {} seconds'.format(time.time() - START_TIME))

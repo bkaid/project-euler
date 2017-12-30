@@ -1,5 +1,4 @@
 import collections
-import math
 
 def to_digits(number):
     return list(map(int, str(number)))

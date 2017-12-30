@@ -49,8 +49,6 @@
       },
       "envFile": "${workspaceRoot}/.env",
       "debugOptions": [
-        "WaitOnAbnormalExit",
-        "WaitOnNormalExit",
         "RedirectOutput"
       ]
     },
@@ -68,8 +66,6 @@
       "env": {},
       "envFile": "${workspaceRoot}/.env",
       "debugOptions": [
-        "WaitOnAbnormalExit",
-        "WaitOnNormalExit",
         "RedirectOutput"
       ]
     }
